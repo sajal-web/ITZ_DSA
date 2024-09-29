@@ -1,4 +1,3 @@
-// package Arrays;
 
 public class ArrayCC {
     public static void main(String[] args) {
@@ -7,6 +6,7 @@ public class ArrayCC {
         System.out.println(linearSearch(numbers,key));
         System.out.println(getLargestNumber(numbers));
         System.out.println(getSmallestNumber(numbers));
+        System.out.println(binarySearch(numbers, key));
     }
     static int linearSearch(int arr[], int key){
         for(int i =0;i<arr.length;i++){
@@ -35,5 +35,21 @@ public class ArrayCC {
             }
         }
         return smallest;
+    }
+
+    static int binarySearch(int arr[], int key){
+        int start = 0, end = arr.length - 1;
+        while (start <= end) {
+            int mid = start + end / 2;
+            if (arr[mid] == key) {
+                return mid;
+            }
+            if (arr[mid] > key) { // left case
+                end = mid -1;
+            } else { // right case
+                start = mid + 1;
+            }
+        }
+        return -1;
     }
 }
