@@ -2,11 +2,13 @@
 public class ArrayCC {
     public static void main(String[] args) {
         int numbers[] = {2,4,6,8,10,12,14,16};
-        int key = 15;
-        System.out.println(linearSearch(numbers,key));
-        System.out.println(getLargestNumber(numbers));
-        System.out.println(getSmallestNumber(numbers));
-        System.out.println(binarySearch(numbers, key));
+        int key = 5;
+        // System.out.println(linearSearch(numbers,key));
+        // System.out.println(getLargestNumber(numbers));
+        // System.out.println(getSmallestNumber(numbers));
+        // System.out.println("binary search result is :" + binarySearch(numbers, key));
+        pairsInArray(numbers);
+
     }
     static int linearSearch(int arr[], int key){
         for(int i =0;i<arr.length;i++){
@@ -52,4 +54,26 @@ public class ArrayCC {
         }
         return -1;
     }
+
+    static void reverseArray(int arr[]){
+        int first = 0, last = arr.length-1;
+        while (first<last) {
+            int temp = arr[last];
+            arr[last] = arr[first];
+            arr[first] = temp;
+        }
+    }
+
+    static void pairsInArray(int arr[]){
+        int totalPairs = 1;
+        for(int i = 0; i<arr.length; i++){
+            for(int j = i+1; j < arr.length; j++){
+                System.out.print("("+arr[i]+","+arr[j]+")");
+                totalPairs++;
+            }
+            System.out.println();
+        }
+        System.out.println("Total pairs of the arry is "+totalPairs);
+    }
+
 }
